@@ -6,3 +6,6 @@
 const mongoose = require("mongoose");
 
 // //// SCHEMA //////////////////////////////////
+const MatterSchema = new mongoose.Schema({
+    name: String
+})
