@@ -6,3 +6,7 @@
 const mongoose = require("mongoose");
 
 // //// SCHEMA //////////////////////////////////
+const FactoidSchema = new mongoose.Schema({
+
+}, {timestams: true});  // Timestamps implement CreatedAt / UpdateAt
+
