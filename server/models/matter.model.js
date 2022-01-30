@@ -12,3 +12,8 @@ const MatterSchema = new mongoose.Schema({
     factoids: [ Factoid ]
 }, {timestamps: true}); // Timestamps implement createdAt/updatedAt
 
+// //// MODEL ///////////////////////////////////
+const Matter = mongoose.model("Matter", MatterSchema );
+
+// **** Export Model ********
+module.exports = Matter;
