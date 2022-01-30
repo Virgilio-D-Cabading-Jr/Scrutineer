@@ -5,3 +5,5 @@ Summary: MERN Full Stack application which allows the study of Subjects created 
 Project Origin: Coding Dojo > MERN > Full Stack
 
 Language: Javascript
+
+Library: React
