@@ -10,4 +10,4 @@ Library: React, Express, Mongoose
 
 Database: MongoDB
 
-Platform:
+Platform: Visual Studio Code
