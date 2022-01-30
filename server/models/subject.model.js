@@ -8,5 +8,6 @@ const Matter = require("./matter.model")
 
 // //// SCHEMA //////////////////////////////////
 const SubjectSchema = new mongoose.Schema({
-
+    name: String,
+    matters: [ Matter ]
 }, {});
