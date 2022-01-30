@@ -10,3 +10,8 @@ const FactoidSchema = new mongoose.Schema({
 
 }, {timestams: true});  // Timestamps implement CreatedAt / UpdateAt
 
+// //// MODEL ///////////////////////////////////
+const Factoid = mongoose.model("Factoid", FactoidSchema);
+
+// **** Export Model ********
+module.exports = Factoid;
