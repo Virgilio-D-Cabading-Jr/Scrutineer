@@ -8,4 +8,4 @@ Language: Javascript
 
 Library: React, Express, Mongoose
 
-Database:
+Database: MongoDB
