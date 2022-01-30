@@ -7,3 +7,5 @@ Project Origin: Coding Dojo > MERN > Full Stack
 Language: Javascript
 
 Library: React, Express, Mongoose
+
+Database:
