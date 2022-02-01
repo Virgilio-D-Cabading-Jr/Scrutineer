@@ -19,8 +19,7 @@ const App = () => {
         {/* **** NAVIGATION BAR ********* */}
         <NavBarComp />
         <Switch >
-          {/* **** MAIN COMPONENT ********** */}
-          {/* <Main /> */}
+          
         </Switch>
 
         </div>
