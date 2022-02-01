@@ -9,7 +9,13 @@ const Matter = require("./matter.model")
 // //// SCHEMA //////////////////////////////////
 const SubjectSchema = new mongoose.Schema({
     name: String,
-    matters: [ Matter ]
+    category: String,
+    Answers : [
+        {
+            Answer: String,
+            Questions: [ String ]
+        }
+    ]
 }, {timestamps: true}); // Timestamps implement createdAd/updatedAt
 
 // //// MODEL ///////////////////////////////////
