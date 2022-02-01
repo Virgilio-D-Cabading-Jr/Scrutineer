@@ -49,3 +49,17 @@
   border-radius: 20px;
   padding: 0px 12px;
 }
+
+.bg {
+  background-image: url("https://i.ibb.co/99hKr1D/Scrutineer-splash-Page-v1.png");
+    /* Full height */
+    height: 100vh; 
+
+    /* Center and scale the image nicely */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-maroon {
+  background-color: rgb(47,2,35);
+}

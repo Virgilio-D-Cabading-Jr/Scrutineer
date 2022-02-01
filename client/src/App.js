@@ -1,7 +1,9 @@
 import './App.css';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import NavBarComp from './components/NavBarComp';
+import HomeView from './views/HomeView';
+import SubjectView from './views/SubjectView';
 
 ////////////////////////////////////////////////////
 //  ROOT APPLICATION
@@ -14,16 +16,21 @@ import NavBarComp from './components/NavBarComp';
 const App = () => {
   // //// OUTPUT ///////////////////////////////////
   return (
-      <BrowserRouter>
-        <div className='root'>
-        {/* **** NAVIGATION BAR ********* */}
-        <NavBarComp />
-        <Switch >
-          
-        </Switch>
+    <BrowserRouter>
+      <Switch >
+        {/* **** Home View ******** */}
+        <Route exact path="/">
+          <div className='bg'>
+            <HomeView />
+          </div>
+        </Route>
+        <Route path="/subject/id">
+          <SubjectView />
+        </Route>
 
-        </div>
-      </BrowserRouter>
+
+      </Switch>
+    </BrowserRouter>
   );
 }
 
