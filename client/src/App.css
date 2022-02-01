@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.bg-red {
+  background-color: maroon;
+}
+
+.round {
+  border-radius: 20px;
+}
+
+.round-btn {
+  border-radius: 20px;
+  padding: 0px 12px;
+}
