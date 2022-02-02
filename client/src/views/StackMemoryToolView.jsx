@@ -12,6 +12,7 @@ const StackMemoryToolView = (props) => {
     const subject = props.subject;
     const [toolStarted, setToolStarted] = useState(false);
     const [stack, setStack] = useState([]);
+    const [usersAnswer, setUsersAnswer] = useState("");
 
     // **** Utilities ******************************
 
@@ -44,7 +45,8 @@ const StackMemoryToolView = (props) => {
             <div className='row p-3 round'>
                 <div className="col bg-white round">
                     <h2 className='text-center' >Scrutinize the Stack</h2>
-                    <p className='text-center text-info' >Directions: Answer the top question on the stack.  <br/ >Correct answer, reduces the stack, Wrong answer grows the stack.  <br />Reduce the stack to nothing to win the challenge</p>
+                    <p className='text-center text-info' >Directions: Answer the top question on the stack.  <br />Correct answer, reduces the stack, Wrong answer grows the stack.  <br />Reduce the stack to nothing to win the challenge</p>
+                    <p>Answer: {JSON.stringify(usersAnswer)}</p>
                     <hr />
                     {/* **** Determine if Tool has started or not ******** */}
                     {
@@ -55,10 +57,25 @@ const StackMemoryToolView = (props) => {
                                 {/* **** Input Form ******* */}
                                 <form onSubmit={e => handleSubmit(e)} >
                                     <div className='row m-3'>
+                                        <div className='col'>
+                                            <h3>
+                                                <strong>Answer: </strong>
+                                            </h3>
+                                            {/* **** Select Input ******** */}
+                                            <select className="form-control" value={usersAnswer}
+                                                onChange={e => setUsersAnswer(e.target.value)}>
+                                                {
+                                                    subject.answers.map((answer, idx) => {
+                                                        return <option key={idx} value={answer.info} >{answer.info}</option>
+                                                    })
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div className='row m-3'>
                                         <button type="submit" className="btn btn-success round col">
                                             <strong>Submit Answer</strong>
                                         </button>
-
                                     </div>
                                 </form>
                             </div>
