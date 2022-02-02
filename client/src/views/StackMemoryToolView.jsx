@@ -13,8 +13,7 @@ const StackMemoryToolView = (props) => {
     const [toolStarted, setToolStarted] = useState(false);
     const [stack, setStack] = useState([]);
 
-    // **** Initialize the Stack *******************
-    useEffect(() => {
+    const initializeRandomStack = () => {
         let copyStack = [];
         for (let i=0; i<5; i++) {
             // Get Random Indexes for answer and question
@@ -28,7 +27,12 @@ const StackMemoryToolView = (props) => {
         }
         console.log("stack:", copyStack);
         setStack(copyStack);
-    }, [toolStarted]);
+    }
+
+    // **** Initialize the Stack *******************
+    useEffect(() => {
+        initializeRandomStack();
+    }, []);
 
     // **** Output *********************************
     return (<div>
@@ -41,20 +45,23 @@ const StackMemoryToolView = (props) => {
                     {/* **** Determine if Tool has started or not ******** */}
                     {
                         toolStarted
-                        ? <div><ShowStackComp /></div>
-                        : <div className='stackImg'>
-                            <div className='row'>
-                                <img className='col round'
-                                    src="https://i.ibb.co/MPPxPYk/Srutineer-start-memory-stack-header.png" 
-                                    alt="Scrut Detective"/>
+                        // **** Show the Stack ************
+                        ?   <div>
+                                <ShowStackComp answers={subject.answers} stack={stack}  />
                             </div>
-                            <div className='row m-3'>
-                                <button className='col btn btn-warning round'
-                                    onClick={e => setToolStarted(true)} >
-                                    <strong>Start a New Round</strong>
-                                </button>
+                        :   <div className='stackImg'>
+                                <div className='row'>
+                                    <img className='col round'
+                                        src="https://i.ibb.co/MPPxPYk/Srutineer-start-memory-stack-header.png" 
+                                        alt="Scrut Detective"/>
+                                </div>
+                                <div className='row m-3'>
+                                    <button className='col btn btn-warning round'
+                                        onClick={e => setToolStarted(true)} >
+                                        <strong>Start a New Round</strong>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
                     }
                 </div>
             </div>
