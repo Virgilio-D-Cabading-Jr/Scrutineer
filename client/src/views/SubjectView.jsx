@@ -19,7 +19,7 @@ const SubjectView = (props) => {
                 <div className="col bg-white round">
                     <h1>{ subject.name }</h1>
                     <h3>Category: { subject.category }</h3>
-                    <p>Answers: { JSON.stringify(subject.answers) }</p>
+                    {/* <p>Answers: { JSON.stringify(subject.answers) }</p> */}
                     <Link to={"/subject/" + subject._id + "/stackmemory"}>
                         <div className='row'>
                             <div className='col bg-warning round text-center text-white m-3'>
