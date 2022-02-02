@@ -25,14 +25,12 @@ const StackMemoryToolView = (props) => {
             // push the indexes to the stack
             copyStack.push([answerIdx, questionIdx]);
         }
-        console.log("stack:", copyStack);
+        // console.log("stack:", copyStack);
         setStack(copyStack);
     }
 
     // **** Initialize the Stack *******************
-    useEffect(() => {
-        initializeRandomStack();
-    }, []);
+    useEffect(() => initializeRandomStack(), []);
 
     // **** Output *********************************
     return (<div>
