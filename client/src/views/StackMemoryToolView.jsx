@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import NavBarComp from '../components/NavBarComp';
+import ShowStackComp from '../components/ShowStackComp';
 
 ////////////////////////////////////////////////////
 //  STACK MEMORY INSTALL VIEW
@@ -10,6 +11,24 @@ const StackMemoryToolView = (props) => {
     // **** Fields *********************************
     const subject = props.subject;
     const [toolStarted, setToolStarted] = useState(false);
+    const [stack, setStack] = useState([]);
+
+    // **** Initialize the Stack *******************
+    useEffect(() => {
+        let copyStack = [];
+        for (let i=0; i<5; i++) {
+            // Get Random Indexes for answer and question
+            const answerIdx = Math.floor(Math.random() * subject.answers.length);
+            const questionIdx = Math.floor(Math.random() * subject.answers[answerIdx].questions.length);
+            // console.log("*** AnswerIdx:", answerIdx, " | questionIx:", questionIdx);
+            // console.log("*** Answer:", subject.answers[answerIdx].info, " | question:", subject.answers[answerIdx].questions[questionIdx]);
+
+            // push the indexes to the stack
+            copyStack.push([answerIdx, questionIdx]);
+        }
+        console.log("stack:", copyStack);
+        setStack(copyStack);
+    }, [toolStarted]);
 
     // **** Output *********************************
     return (<div>
@@ -22,7 +41,7 @@ const StackMemoryToolView = (props) => {
                     {/* **** Determine if Tool has started or not ******** */}
                     {
                         toolStarted
-                        ? <div>Tool Started</div>
+                        ? <div><ShowStackComp /></div>
                         : <div className='stackImg'>
                             <div className='row'>
                                 <img className='col round'

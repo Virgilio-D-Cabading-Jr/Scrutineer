@@ -12,7 +12,7 @@ const HomeView = () => {
         <HomeNavBarComp />
         <div className='container mt-4'>
             <div className='row p-3 round'>
-                <div className="col-md-9 bg-info">
+                <div className="col-md-9 bg-info round show-welcome">
                     <h2>Welcome, Let's Study</h2>
                     <hr />
                     <h3>Math:</h3>

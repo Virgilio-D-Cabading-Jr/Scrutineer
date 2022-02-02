@@ -63,3 +63,9 @@
 .bg-maroon {
   background-color: rgb(47,2,35);
 }
+
+.show-welcome {
+  opacity: 1;
+  transform: translateY(15px);
+  transition: opacity 2s ease, transform 2s ease;
+}
