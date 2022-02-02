@@ -17,7 +17,7 @@ const NavBarComp = () => {
             <div className='navbar navbar-dark bg-maroon box-shadow'>
                 <div className='container d-flex justify-content-between'>
                     {/* **** Site Title ******** */}
-                    <h2 className='text-white'><strong>Let's Study 📚</strong></h2>
+                    <h2 className='text-white'><strong>Scrutineer 📚</strong></h2>
                     {/* **** Link to The Root of the Site ******** */}
                     <Link to="/">
                         <button className='btn btn-sm btn-info round-btn'>
