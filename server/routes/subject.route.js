@@ -13,7 +13,7 @@ module.exports = function(app) {
     app.get("/api/subjects/:id", SubjectController.fineOne );
 
     // **** Update ******************************
-    app.put("/api/authors/update/:id", AuthorController.updateAuthor);
+    app.put("/api/subjects/:if", SubjectController.update );
 
     // **** Delete ******************************
     app.delete("/api/authors/delete/:id", AuthorController.deleteAuthor);
