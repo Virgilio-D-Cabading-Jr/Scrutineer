@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////
-//  MATTER MODEL
+//  ANSWER MODEL
 /////////////////////////////////////////////////
 
 // //// FIELDS //////////////////////////////////
@@ -7,13 +7,13 @@ const mongoose = require("mongoose");
 const Factoid = require("./factoid.model");
 
 // //// SCHEMA //////////////////////////////////
-const MatterSchema = new mongoose.Schema({
-    name: String,
-    factoids: [ Factoid ]
+const AnswerSchema = new mongoose.Schema({
+    info: String,
+    questions: [ String ]
 }, {timestamps: true}); // Timestamps implement createdAt/updatedAt
 
 // //// MODEL ///////////////////////////////////
-const Matter = mongoose.model("Matter", MatterSchema );
+const Answer = mongoose.model("Answer", AnswerSchema );
 
 // **** Export Model ********
-module.exports = Matter;
+module.exports = Answer;
