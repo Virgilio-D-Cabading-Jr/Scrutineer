@@ -25,7 +25,7 @@ module.exports.findAll = (req, res) => {
     Subject.find()
         .then( allSubjects => 
             res.json({
-                authors: allSubjects,
+                subjects: allSubjects,
                 message: "🦄🦄🦄 Success: Found All 🦄🦄🦄"
             })
         )
