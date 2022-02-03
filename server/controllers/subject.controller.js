@@ -59,3 +59,14 @@ module.exports.update = (req,res) => {
 };
 
 // //// DELETE //////////////////////////////////
+
+module.exports.delete = (req, res) => {
+    Subject.findByIdAndDelete(req.params.id)
+        .then(
+            result => res.json ({
+                result: result,
+                message: "🍕🍕🍕 Success: Delete  🍕🍕🍕"
+            })
+        )
+        .catch(err => res.status(400).json(err ));
+};
