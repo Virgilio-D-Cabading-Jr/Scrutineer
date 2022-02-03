@@ -11,7 +11,7 @@ const SubjectSchema = new mongoose.Schema({
     category: String,
     answers : [
         {
-            answer: String,
+            info: String,
             questions: [ String ]
         }
     ]
