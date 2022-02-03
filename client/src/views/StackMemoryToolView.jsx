@@ -3,6 +3,7 @@ import { useHistory, Link } from 'react-router-dom';
 
 import NavBarComp from '../components/NavBarComp';
 import ShowStackComp from '../components/ShowStackComp';
+import StackToolDoneButtonsComp from '../components/StackToolDoneButtonsComp';
 
 ////////////////////////////////////////////////////
 //  STACK MEMORY INSTALL VIEW
@@ -114,6 +115,7 @@ const StackMemoryToolView = (props) => {
                                                 // **** Win Condition met ********
                                                 ?   <div className='m-3'>
                                                         <h2 className='text-center'>Congratulations, You Rock</h2>
+                                                        <StackToolDoneButtonsComp subject={subject} setToolStarted={ setToolStarted } />
                                                         <div className='row'>
                                                             <button className='col m-3 btn btn-warning round' onClick={e=>setToolStarted(false)}>
                                                                 <strong className='text-white'>Reset Game</strong>
