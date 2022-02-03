@@ -10,8 +10,7 @@ module.exports = function(app) {
 
     // **** Retrieve ****************************
     app.get("/api/subjects", SubjectController.findAll );
-    
-    app.get("/api/authors/:id", AuthorController.fineOneAuthor);
+    app.get("/api/subjects/:id", SubjectController.fineOne );
 
     // **** Update ******************************
     app.put("/api/authors/update/:id", AuthorController.updateAuthor);
