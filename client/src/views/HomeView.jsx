@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import HomeNavBarComp from '../components/HomeNavBarComp';
@@ -6,6 +6,12 @@ import HomeNavBarComp from '../components/HomeNavBarComp';
 ////////////////////////////////////////////////////
 //  HOME VIEW
 ////////////////////////////////////////////////////
+
+// //// FIELDS /////////////////////////////////////
+
+
+
+// //// OUTPUT /////////////////////////////////////
 
 const HomeView = () => {
     return (<div>
@@ -27,7 +33,6 @@ const HomeView = () => {
                 </div>
             </div>
         </div>
-
     </div>);
 };
 

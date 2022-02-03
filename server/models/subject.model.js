@@ -9,6 +9,7 @@ const mongoose = require("mongoose");
 const SubjectSchema = new mongoose.Schema({
     name: String,
     category: String,
+    imgUrl: String,
     answers : [
         {
             info: String,
