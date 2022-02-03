@@ -66,7 +66,7 @@ const StackMemoryToolView = (props) => {
     useEffect(() => initializeRandomStack(), [toolStarted]);
 
     // **** Output *********************************
-    return (<div>
+    return (<div className='bg-greybooks'>
         <NavBarComp />
         <div className='container mt-2'>
             <div className='row p-3 round'>
@@ -79,7 +79,7 @@ const StackMemoryToolView = (props) => {
                     <hr />
                 </div>
                 <div className='col-1'></div>
-                <div className='col-6 bg-info round' >
+                <div className='col-6 bg-white round' >
                     {/* **** Determine if Tool has started or not ******** */}
                     {
                         toolStarted
