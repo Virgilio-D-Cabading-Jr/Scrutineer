@@ -9,10 +9,10 @@ const mongoose = require("mongoose");
 const SubjectSchema = new mongoose.Schema({
     name: String,
     category: String,
-    Answers : [
+    answers : [
         {
-            Answer: String,
-            Questions: [ String ]
+            answer: String,
+            questions: [ String ]
         }
     ]
 }, {timestamps: true}); // Timestamps implement createdAd/updatedAt
