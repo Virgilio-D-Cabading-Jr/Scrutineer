@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory, Link } from 'react-router-dom';
 
 import NavBarComp from '../components/NavBarComp';
 import ShowStackComp from '../components/ShowStackComp';
@@ -14,6 +15,7 @@ const StackMemoryToolView = (props) => {
     const [stack, setStack] = useState([]);
     const [usersAnswer, setUsersAnswer] = useState(subject.answers[0].info);
     const [message, setMessage] = useState(null);
+    const history = useHistory();
 
     // **** Utilities ******************************
 
@@ -60,7 +62,7 @@ const StackMemoryToolView = (props) => {
     }
 
     // **** Initialize the Stack *******************
-    useEffect(() => initializeRandomStack(), []);
+    useEffect(() => initializeRandomStack(), [toolStarted]);
 
     // **** Output *********************************
     return (<div>
@@ -81,31 +83,52 @@ const StackMemoryToolView = (props) => {
                                 <ShowStackComp answers={subject.answers} stack={stack} />
                                 { message }
                                 {
-                                (stack.length>0) && (stack.length<10)
-                                ?   <form onSubmit={e => handleSubmit(e)} >
-                                        <div className='row m-3'>
-                                            <div className='col'>
-                                                <h3>
-                                                    <strong>Answer: </strong>
-                                                </h3>
-                                                {/* **** Select Input ******** */}
-                                                <select className="form-control" value={usersAnswer}
-                                                    onChange={e => setUsersAnswer(e.target.value)}>
-                                                    {
-                                                        subject.answers.map((answer, idx) => {
-                                                            return <option key={idx} value={answer.info} >{answer.info}</option>
-                                                        })
-                                                    }
-                                                </select>
+                                    // To Display the form, first check to make sure stack is not empty or full
+                                    (stack.length>0) && (stack.length<10)
+                                    // **** Input Form ********
+                                    ?   <form onSubmit={e => handleSubmit(e)} >
+                                            <div className='row m-3'>
+                                                <div className='col'>
+                                                    <h4>Answer:</h4>
+                                                    {/* **** Select Input ******** */}
+                                                    <select className="form-control" value={usersAnswer}
+                                                        onChange={e => setUsersAnswer(e.target.value)}>
+                                                        {
+                                                            subject.answers.map((answer, idx) => {
+                                                                return <option key={idx} value={answer.info} >{answer.info}</option>
+                                                            })
+                                                        }
+                                                    </select>
+                                                </div>
                                             </div>
+                                            <div className='row m-3'>
+                                                <button type="submit" className="btn btn-success round col">
+                                                    <strong>Submit Answer</strong>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    :   <div>
+                                            {/* **** Determine if User Won or Lost ******** */}
+                                            {
+                                                stack.length<1
+                                                // **** Win Condition met ********
+                                                ?   <div className='m-3'>
+                                                        <h2 className='text-center'>Congratulations, You Rock</h2>
+                                                        <div className='row'>
+                                                            <button className='col m-3 btn btn-warning round' onClick={e=>setToolStarted(false)}>
+                                                                <strong className='text-white'>Reset Game</strong>
+                                                            </button>
+                                                            <button className='col m-3 btn btn-primary round' onClick={e=>{history.push("/subject/"+subject._id)}} >
+                                                                <strong className='text-white'>Study {subject.name} some more</strong>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                // **** Lose Condition occured *********
+                                                :   <div className='m-3'>
+                                                        <h2 className='text-center text-danger'>Oh pooh. . . Game Over</h2>
+                                                    </div>
+                                            }
                                         </div>
-                                        <div className='row m-3'>
-                                            <button type="submit" className="btn btn-success round col">
-                                                <strong>Submit Answer</strong>
-                                            </button>
-                                        </div>
-                                    </form>
-                                :   <h1>Game is Done</h1>
                                 }
                             </div>
                             // **** If Tool has not Started, show Start button ********
