@@ -80,30 +80,33 @@ const StackMemoryToolView = (props) => {
                             ? <div>
                                 <ShowStackComp answers={subject.answers} stack={stack} />
                                 { message }
-                                {/* **** Input Form ******* */}
-                                <form onSubmit={e => handleSubmit(e)} >
-                                    <div className='row m-3'>
-                                        <div className='col'>
-                                            <h3>
-                                                <strong>Answer: </strong>
-                                            </h3>
-                                            {/* **** Select Input ******** */}
-                                            <select className="form-control" value={usersAnswer}
-                                                onChange={e => setUsersAnswer(e.target.value)}>
-                                                {
-                                                    subject.answers.map((answer, idx) => {
-                                                        return <option key={idx} value={answer.info} >{answer.info}</option>
-                                                    })
-                                                }
-                                            </select>
+                                {
+                                (stack.length>0) && (stack.length<10)
+                                ?   <form onSubmit={e => handleSubmit(e)} >
+                                        <div className='row m-3'>
+                                            <div className='col'>
+                                                <h3>
+                                                    <strong>Answer: </strong>
+                                                </h3>
+                                                {/* **** Select Input ******** */}
+                                                <select className="form-control" value={usersAnswer}
+                                                    onChange={e => setUsersAnswer(e.target.value)}>
+                                                    {
+                                                        subject.answers.map((answer, idx) => {
+                                                            return <option key={idx} value={answer.info} >{answer.info}</option>
+                                                        })
+                                                    }
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className='row m-3'>
-                                        <button type="submit" className="btn btn-success round col">
-                                            <strong>Submit Answer</strong>
-                                        </button>
-                                    </div>
-                                </form>
+                                        <div className='row m-3'>
+                                            <button type="submit" className="btn btn-success round col">
+                                                <strong>Submit Answer</strong>
+                                            </button>
+                                        </div>
+                                    </form>
+                                :   <h1>Game is Done</h1>
+                                }
                             </div>
                             // **** If Tool has not Started, show Start button ********
                             : <div className='stackImg'>
