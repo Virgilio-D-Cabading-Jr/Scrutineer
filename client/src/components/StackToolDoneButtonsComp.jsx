@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 //  SHOW STACK COMPONENT
 ////////////////////////////////////////////////////
 
-const StackToolDoneButtonsComp = () => {
+const StackToolDoneButtonsComp = (props) => {
     const history = useHistory();
     return (<div>
         <div className='row'>

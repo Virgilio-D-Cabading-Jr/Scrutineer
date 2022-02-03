@@ -68,14 +68,18 @@ const StackMemoryToolView = (props) => {
     // **** Output *********************************
     return (<div>
         <NavBarComp />
-        <div className='container mt-4'>
+        <div className='container mt-2'>
             <div className='row p-3 round'>
-                <div className="col bg-white round">
-                    <h2 className='text-center' >Scrutinize the Stack</h2>
-                    <p className='text-center text-info' >Directions: Answer the top question on the stack.  <br />Correct answer, reduces the stack, Wrong answer grows the stack.  <br />Reduce the stack to nothing to win the challenge</p>
+                <div className="col-4 bg-maroon text-info round">
+                    <h2 className='text-center text-white mt-5' >Scrutinize the Stack</h2>
+                    <hr/><br/>
+                    <p className='text-center text-info' ><strong>Directions:</strong> <br/>Answer the top question on the stack.  <br />Correct answer, reduces the stack, <br/>Wrong answer grows the stack.  <br /><br/>Reduce the stack to nothing to win the challenge<br/></p>
                     {/* <p>Answer: {JSON.stringify(usersAnswer)}</p> */}
                     {/* <p>Message: {message}</p> */}
                     <hr />
+                </div>
+                <div className='col-1'></div>
+                <div className='col-6 bg-info round' >
                     {/* **** Determine if Tool has started or not ******** */}
                     {
                         toolStarted
@@ -116,18 +120,11 @@ const StackMemoryToolView = (props) => {
                                                 ?   <div className='m-3'>
                                                         <h2 className='text-center'>Congratulations, You Rock</h2>
                                                         <StackToolDoneButtonsComp subject={subject} setToolStarted={ setToolStarted } />
-                                                        <div className='row'>
-                                                            <button className='col m-3 btn btn-warning round' onClick={e=>setToolStarted(false)}>
-                                                                <strong className='text-white'>Reset Game</strong>
-                                                            </button>
-                                                            <button className='col m-3 btn btn-primary round' onClick={e=>{history.push("/subject/"+subject._id)}} >
-                                                                <strong className='text-white'>Study {subject.name} some more</strong>
-                                                            </button>
-                                                        </div>
                                                     </div>
                                                 // **** Lose Condition occured *********
                                                 :   <div className='m-3'>
                                                         <h2 className='text-center text-danger'>Oh pooh. . . Game Over</h2>
+                                                        <StackToolDoneButtonsComp subject={subject} setToolStarted={ setToolStarted } />
                                                     </div>
                                             }
                                         </div>
@@ -136,7 +133,7 @@ const StackMemoryToolView = (props) => {
                             // **** If Tool has not Started, show Start button ********
                             : <div className='stackImg'>
                                 <div className='row'>
-                                    <img className='col round'
+                                    <img className='col round mt-3'
                                         src="https://i.ibb.co/MPPxPYk/Srutineer-start-memory-stack-header.png"
                                         alt="Scrut Detective" />
                                 </div>

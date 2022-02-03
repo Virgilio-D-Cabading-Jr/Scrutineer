@@ -14,7 +14,7 @@ const SubjectView = (props) => {
     // **** Output *********************************
     return (<div>
         <NavBarComp />
-        <div className='container mt-4'>
+        <div className='container mt-2'>
             <div className='row p-3 round'>
                 <div className="col bg-white round">
                     <h1>{ subject.name }</h1>

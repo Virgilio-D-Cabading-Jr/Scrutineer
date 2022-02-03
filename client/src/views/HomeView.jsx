@@ -10,7 +10,7 @@ import HomeNavBarComp from '../components/HomeNavBarComp';
 const HomeView = () => {
     return (<div>
         <HomeNavBarComp />
-        <div className='container mt-4'>
+        <div className='container mt-2'>
             <div className='row p-3 round'>
                 <div className="col-md-9 bg-info round show-welcome">
                     <h2>Welcome, Let's Study</h2>
