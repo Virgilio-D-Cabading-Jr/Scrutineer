@@ -46,5 +46,16 @@ module.exports.fineOne = (req, res) => {
 
 // //// UPDATE //////////////////////////////////
 
+module.exports.update = (req,res) => {
+    Subject.findByIdAndUpdate( req.params.id, req.body, 
+        { new: true, runValidators: true })
+        .then(
+            updatedSubject => res.json({
+                subject: updatedSubject,
+                message: "🍔🍔🍔 Success: Update 🍔🍔🍔"
+            })
+        )
+        .catch(err => res.status(400).json(err ));
+};
 
 // //// DELETE //////////////////////////////////
