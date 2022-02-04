@@ -32,16 +32,10 @@ return (<div>
         <HomeNavBarComp />
         <div className='container mt-2'>
             <div className='row p-3 round'>
-                <div className="col-md-9 bg-info round show-welcome">
-                    <h2>Welcome, Let's Study</h2>
+                <div className="col-md-9 round show-welcome">
+                    <h2 className='text-white'>Welcome, Let's Study</h2>
                     {/* <p>Subjects:{JSON.stringify(subjects)}</p> */}
                     <hr />
-                    <h3>Math:</h3>
-                    <Link to="/subject/636">
-                        <button className='btn btn-primary round mb-3'>
-                            <strong>Addition: 1 to 10</strong>
-                        </button>
-                    </Link>
                     <ShowAllSubjectsComp subjects={subjects} subjectLoaded={ subjectLoaded } />
                 </div>
                 <div className='col-md-3'>
