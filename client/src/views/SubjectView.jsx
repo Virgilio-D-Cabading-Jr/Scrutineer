@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import NavBarComp from '../components/NavBarComp';
@@ -10,6 +11,13 @@ import NavBarComp from '../components/NavBarComp';
 const SubjectView = () => {
     // **** Fields *********************************
     const [subject, setSubject] = useState({});
+    const [subjectLoaded, setSubjectLoaded] = useState(false);
+
+    // **** Retrieve Subject from Database *********
+
+    useEffect(() => {
+        
+    }, []);
 
     // **** Output *********************************
     return (<div>
