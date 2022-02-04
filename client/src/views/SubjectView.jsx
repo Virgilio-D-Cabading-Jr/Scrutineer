@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import NavBarComp from '../components/NavBarComp';
 
@@ -10,13 +10,18 @@ import NavBarComp from '../components/NavBarComp';
 
 const SubjectView = () => {
     // **** Fields *********************************
+    const { id } = useParams();
     const [subject, setSubject] = useState({});
     const [subjectLoaded, setSubjectLoaded] = useState(false);
 
     // **** Retrieve Subject from Database *********
 
     useEffect(() => {
-        
+        axios.get("http://localhost:8000/api/subjects/" + id)
+        .then(response => {
+            console.log("*** In subject view | res.data:", response.data);
+        })
+        .catch(error => console.log("⚠⚠⚠ ERROR FOUND when looking for subject ⚠⚠⚠"));
     }, []);
 
     // **** Output *********************************
