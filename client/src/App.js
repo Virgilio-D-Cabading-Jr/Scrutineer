@@ -72,7 +72,7 @@ const App = () => {
           <StackMemoryToolView subject={subject} />
         </Route>
         <Route path="/subject/:id">
-          <SubjectView subject={subject} />
+          <SubjectView />
         </Route>
         {/* **** Home View ******** */}
         <Route exact path="/">

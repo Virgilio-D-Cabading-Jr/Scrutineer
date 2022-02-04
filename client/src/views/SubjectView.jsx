@@ -18,10 +18,12 @@ const SubjectView = () => {
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/subjects/" + id)
-        .then(response => {
-            console.log("*** In subject view | res.data:", response.data);
-        })
-        .catch(error => console.log("⚠⚠⚠ ERROR FOUND when looking for subject ⚠⚠⚠"));
+            .then(response => {
+                console.log("*** In subject view | res.data:", response.data);
+                setSubject(response.data.subject);
+                setSubjectLoaded(true);
+            })
+            .catch(error => console.log("⚠⚠⚠ ERROR FOUND when looking for subject ⚠⚠⚠"));
     }, []);
 
     // **** Output *********************************
@@ -30,13 +32,23 @@ const SubjectView = () => {
         <div className='container mt-2'>
             <div className='row p-3 round'>
                 <div className="col bg-white round">
-                    <h1>{ subject.name }</h1>
-                    <h3>Category: { subject.category }</h3>
+                    <div className='row bg-maroon text-white m-3 p-3 round'>
+                        <div className='col p-3'>
+                            <h1>{subject.name}</h1>
+                            <h3 className='m-3'>Category: {subject.category}</h3>
+                        </div>
+                        <img className='col' src={subject.imgUrl}   />
+                    </div>
                     {/* <p>Answers: { JSON.stringify(subject.answers) }</p> */}
-                    <Link to={"/subject/" + subject._id + "/stackmemory"}>
-                        <div className='row'>
-                            <div className='col bg-warning round text-center text-white m-3'>
-                                <h2>Stack Manager Tool</h2>
+                    <Link className='link-noline' to={"/subject/" + id + "/stackmemory"}>
+                        <div className='row m-3'>
+                            <div className='col bg-warning round text-center text-white m-3 p-3'>
+                                <div className='row' >
+                                    <div className='col-6'>
+                                        <h2>Stack Manager<br />Tool</h2>
+                                    </div>
+                                    <img className='col-6 round' src="https://i.ibb.co/GpLWXMp/stack-manager-tool-snapshot.png" alt="stack memory screen capture" />
+                                </div>
                             </div>
                         </div>
                     </Link>

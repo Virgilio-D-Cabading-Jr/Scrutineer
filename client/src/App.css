@@ -58,6 +58,7 @@
     /* Center and scale the image nicely */
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: scroll;
 }
 
 .bg-maroon {
@@ -73,9 +74,20 @@
 .bg-greybooks {
   background-image: url("https://i.ibb.co/c6Bdh5k/Books-Black-and-white-background.png");
     /* Full height */
-    height: 150vh; 
+    height: 100vh; 
 
     /* Center and scale the image nicely */
     background-repeat:repeat;
     background-size: cover;
+    overflow: scroll;
+}
+
+.link-noline {
+  text-decoration: none;
+}
+
+.navbar-absolute {
+  position: fixed;
+  width: 100%;
+  top: 0px;
 }
