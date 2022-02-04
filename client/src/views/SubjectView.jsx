@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import NavBarComp from '../components/NavBarComp';
@@ -7,9 +7,9 @@ import NavBarComp from '../components/NavBarComp';
 //  SUBJECT VIEW
 ////////////////////////////////////////////////////
 
-const SubjectView = (props) => {
+const SubjectView = () => {
     // **** Fields *********************************
-    const subject = props.subject;
+    const [subject, setSubject] = useState({});
 
     // **** Output *********************************
     return (<div>
