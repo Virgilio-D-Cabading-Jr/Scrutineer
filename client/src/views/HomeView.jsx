@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -7,14 +8,24 @@ import HomeNavBarComp from '../components/HomeNavBarComp';
 //  HOME VIEW
 ////////////////////////////////////////////////////
 
-// //// FIELDS /////////////////////////////////////
-
-
-
-// //// OUTPUT /////////////////////////////////////
-
 const HomeView = () => {
-    return (<div>
+    // //// FIELDS /////////////////////////////////
+    
+    const [subjects, setSubjects] = useState({});
+
+    // //// RETRIEVE SUBJECTS FROM DATABASE ////////
+
+    useEffect(()=>{
+        axios.get("http://localhost:8000/api/subjects")
+            .then(res => {
+                console.log("*** In get all subjects *** | Res.data.subjects:", res.data.subjects);
+                setSubjects(res.data.subjects);
+            }) 
+    },[]);
+    
+    // //// OUTPUT /////////////////////////////////
+
+return (<div>
         <HomeNavBarComp />
         <div className='container mt-2'>
             <div className='row p-3 round'>
