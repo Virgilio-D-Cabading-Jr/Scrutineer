@@ -13,6 +13,7 @@ const HomeView = () => {
     // //// FIELDS /////////////////////////////////
     
     const [subjects, setSubjects] = useState({});
+    const [subjectLoaded, setSubjectLoaded] = useState(false);
 
     // //// RETRIEVE SUBJECTS FROM DATABASE ////////
 
@@ -21,6 +22,7 @@ const HomeView = () => {
             .then(res => {
                 console.log("*** In get all subjects *** | Res.data.subjects:", res.data.subjects);
                 setSubjects(res.data.subjects);
+                setSubjectLoaded(true);
             }) 
     },[]);
     
@@ -40,7 +42,7 @@ return (<div>
                             <strong>Addition: 1 to 10</strong>
                         </button>
                     </Link>
-                    <ShowAllSubjectsComp subjects={subjects} />
+                    <ShowAllSubjectsComp subjects={subjects} subjectLoaded={ subjectLoaded } />
                 </div>
                 <div className='col-md-3'>
                     <p>&nbsp;</p>
