@@ -27,17 +27,22 @@ const SubjectView = () => {
     }, []);
 
     // **** Output *********************************
-    return (<div>
+    return (<div className='bg-greybooks'>
         <NavBarComp />
         <div className='container mt-2'>
             <div className='row p-3 round'>
                 <div className="col bg-white round">
                     <div className='row bg-maroon text-white m-3 p-3 round'>
-                        <div className='col p-3'>
+                        <div className='col-5 p-3'>
                             <h1>{subject.name}</h1>
                             <h3 className='m-3'>Category: {subject.category}</h3>
                         </div>
-                        <img className='col' src={subject.imgUrl}   />
+                        <div className='col'></div>
+                        <Link className='col-5' to={"/subject/" + id + "/diagram"}>
+                            <div className='row'>
+                                <img className='col' src={subject.imgUrl} />
+                            </div>
+                        </Link>
                     </div>
                     {/* <p>Answers: { JSON.stringify(subject.answers) }</p> */}
                     <Link className='link-noline' to={"/subject/" + id + "/stackmemory"}>

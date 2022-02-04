@@ -5,6 +5,7 @@ import NavBarComp from './components/NavBarComp';
 import HomeView from './views/HomeView';
 import SubjectView from './views/SubjectView';
 import StackMemoryToolView from './views/StackMemoryToolView';
+import ShowSubjectDiagramView from './views/ShowSubjectDiagramView';
 
 ////////////////////////////////////////////////////
 //  ROOT APPLICATION
@@ -69,7 +70,10 @@ const App = () => {
     <BrowserRouter>
       <Switch >
         <Route path="/subject/:id/stackmemory">
-          <StackMemoryToolView subject={subject} />
+          <StackMemoryToolView />
+        </Route>
+        <Route path="/subject/:id/diagram">
+          <ShowSubjectDiagramView />
         </Route>
         <Route path="/subject/:id">
           <SubjectView />

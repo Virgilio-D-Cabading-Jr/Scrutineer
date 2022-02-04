@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import axios from 'axios';
+import { useHistory, Link, useParams } from 'react-router-dom';
 
 import NavBarComp from '../components/NavBarComp';
 import ShowStackComp from '../components/ShowStackComp';
 import StackToolDoneButtonsComp from '../components/StackToolDoneButtonsComp';
 
 ////////////////////////////////////////////////////
-//  STACK MEMORY INSTALL VIEW
+//  STACK MEMORY TOOL VIEW
 ////////////////////////////////////////////////////
 
 const StackMemoryToolView = (props) => {
     // **** Fields *********************************
-    const subject = props.subject;
+    const { id } = useParams()
+    const [subject, setSubject] = useState({});
+    const [subjectLoaded, setSubjectLoaded] = useState(false);
     const [toolStarted, setToolStarted] = useState(false);
     const [stack, setStack] = useState([]);
-    const [usersAnswer, setUsersAnswer] = useState(subject.answers[0].info);
+    const [usersAnswer, setUsersAnswer] = useState("");
     const [message, setMessage] = useState(null);
     const history = useHistory();
 
@@ -62,8 +65,20 @@ const StackMemoryToolView = (props) => {
         setUsersAnswer(subject.answers[0].info);
     }
 
-    // **** Initialize the Stack *******************
-    useEffect(() => initializeRandomStack(), [toolStarted]);
+    // **** Retrieve Subject from Database *********
+
+    useEffect(() => {
+        axios.get("http://localhost:8000/api/subjects/" + id)
+            .then(response => {
+                console.log("*** In stack memory tool | res.data:", response.data);
+                setSubject(response.data.subject);
+                initializeRandomStack();
+                setSubjectLoaded(true);
+                setUsersAnswer(subject.answers[0].info);
+            })
+            .catch(error => console.log("⚠⚠⚠ ERROR FOUND when looking for subject ⚠⚠⚠"));
+    }, [toolStarted]);
+
 
     // **** Output *********************************
     return (<div className='bg-greybooks'>
@@ -82,14 +97,14 @@ const StackMemoryToolView = (props) => {
                 <div className='col-6 bg-white round' >
                     {/* **** Determine if Tool has started or not ******** */}
                     {
-                        toolStarted
+                        toolStarted && subjectLoaded
                             // **** Show the Stack ************
                             ? <div>
                                 <ShowStackComp answers={subject.answers} stack={stack} />
                                 { message }
                                 {
                                     // To Display the form, first check to make sure stack is not empty or full
-                                    (stack.length>0) && (stack.length<10)
+                                    (stack.length>0) && (stack.length<=10)
                                     // **** Input Form ********
                                     ?   <form onSubmit={e => handleSubmit(e)} >
                                             <div className='row m-3'>

@@ -72,7 +72,8 @@
 }
 
 .bg-greybooks {
-  background-image: url("https://i.ibb.co/c6Bdh5k/Books-Black-and-white-background.png");
+  /* background-image: url("https://i.ibb.co/c6Bdh5k/Books-Black-and-white-background.png"); */
+  background-image: url("https://i.ibb.co/6X6r3Nc/bg-greybooks-v20220204.png");
     /* Full height */
     height: 100vh; 
 
@@ -90,4 +91,9 @@
   position: fixed;
   width: 100%;
   top: 0px;
+}
+
+.show-stack-window {
+  height: 50vh;
+  overflow: scroll;
 }
