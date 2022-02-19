@@ -53,7 +53,8 @@
 .bg {
   background-image: url("https://i.ibb.co/h1vbrJ4/Scrutineer-splash-Page-v1-900.png");
     /* Full height */
-    height: 100vh; 
+    height: 100vh;
+    
 
     /* Center and scale the image nicely */
     background-repeat: no-repeat;
