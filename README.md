@@ -22,3 +22,5 @@ Platform: Visual Studio Code
 
 ![Scrutinize the Stack](https://i.ibb.co/J2tKVLx/project-scrutineer-screenshot-1.jpg)
 
+## Wireframe
+
