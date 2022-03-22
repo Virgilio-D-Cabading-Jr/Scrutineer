@@ -12,6 +12,8 @@ Language: Javascript [Node.js], HTML5, CSS
 
 Framework: React.js, Express.js, Mongoose
 
+Libraries: npm, react-router-dom
+
 Database: MongoDB, NoSQL
 
 Platform: Visual Studio Code
