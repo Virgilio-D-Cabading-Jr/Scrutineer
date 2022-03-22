@@ -18,3 +18,6 @@ Database: MongoDB, NoSQL
 
 Platform: Visual Studio Code
 
+## Screenshots
+---------------
+![Scrutinize the Stack](https://i.ibb.co/J2tKVLx/project-scrutineer-screenshot-1.jpg)
