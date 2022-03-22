@@ -1,9 +1,5 @@
 # Scrutineer Project Read Me
 
-## Table of Contents
-* [General Info]($general-information)
-* [Technologies Used]($technologies-used)
-
 ## General Information
 
 Summary: MERN Full Stack application which allows the study of Subjects created by the user
