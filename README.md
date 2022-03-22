@@ -1,14 +1,22 @@
 # Scrutineer Project Read Me
 
+## Table of Contents
+* [General Info]($general-information)
+* [Technologies Used]($technologies-used)
+
+## General Information
+
 Summary: MERN Full Stack application which allows the study of Subjects created by the user
 
 Project Origin: Coding Dojo > MERN > Full Stack
 
-Language: Javascript
+## Technologies Used
 
-Library: React, Express, Mongoose
+Language: Javascript [Node.js], HTML5, CSS
 
-Database: MongoDB
+Framework: React.js, Express.js, Mongoose
+
+Database: MongoDB, NoSQL
 
 Platform: Visual Studio Code
 
